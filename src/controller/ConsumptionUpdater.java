@@ -1,6 +1,9 @@
-package model;
+package controller;
 
 import java.util.TimerTask;
+
+import view.OutletSimulator;
+import model.Outlet;
 
 public class ConsumptionUpdater extends TimerTask {
 
@@ -13,6 +16,7 @@ public class ConsumptionUpdater extends TimerTask {
 	@Override
 	public void run() {
 		this.outlet.updatePowerConsumed();
+		OutletSimulator.updateFrameCounters();
 	}
 
 }
