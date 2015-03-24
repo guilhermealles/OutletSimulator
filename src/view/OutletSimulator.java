@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import controller.OutletCommunicationController;
 import controller.OutletController;
 
 public class OutletSimulator {
@@ -124,6 +125,16 @@ public class OutletSimulator {
 		});
 		btnInitializeOutlet.setBounds(152, 212, 150, 29);
 		frame.getContentPane().add(btnInitializeOutlet);
+		
+		JButton btnSendData = new JButton("Send Data");
+		btnSendData.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OutletCommunicationController controller = new OutletCommunicationController(outlet_controller.getOutlet());
+				controller.sendMessageToQueue();
+			}
+		});
+		btnSendData.setBounds(237, 283, 117, 29);
+		frame.getContentPane().add(btnSendData);
 	}
 	
 	public static void updateFrameCounters() {

@@ -33,4 +33,9 @@ public class OutletController {
 	public void setPowerConsumptionPerMinute(double new_value) {
 		this.outlet.setPowerConsumptionPerMinute(new_value);
 	}
+	
+	//TODO temporary.
+	public Outlet getOutlet() {
+		return this.outlet;
+	}
 }
