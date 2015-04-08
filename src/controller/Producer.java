@@ -12,7 +12,7 @@ import com.rabbitmq.client.ConnectionFactory;
 
 public class Producer {
 	private static String QUEUE_NAME = "OUTLET_INFO_MESSAGES";
-	private static String HOST = "192.168.0.104";
+	private static String HOST = "192.168.0.106";
 	
 	public static void SendToQueue(QueueMessage message) throws IOException {
 		// Serialize the QueueMessage
