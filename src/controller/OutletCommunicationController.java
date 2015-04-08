@@ -19,6 +19,8 @@ public class OutletCommunicationController {
 	}
 	
 	public void sendMessageToQueue() {
+		QueueMessage to_send = generateQueueMessage();
+		buffer.addLast(to_send);
 		while (buffer.isEmpty() == false) {
 			QueueMessage message = buffer.getFirst();
 			buffer.removeFirst();
@@ -29,15 +31,6 @@ public class OutletCommunicationController {
 				buffer.addFirst(message);
 				break;	// If the RMQ server is not responding, it makes no sense to continue trying to connect to it
 			}
-		}
-		
-		QueueMessage to_send = generateQueueMessage();
-		try {
-			Producer.SendToQueue(to_send);
-		}
-		catch (Exception e) {
-			// If it is not possible to send the message right now, add it to the buffer to send it later
-			buffer.addLast(to_send);
 		}
 	}
 }

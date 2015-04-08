@@ -32,6 +32,6 @@ public class Producer {
 		channel.close();
 		connection.close();
 		
-		System.out.println("New message sent to queue.");
+		System.out.println("New message sent to queue: " + message.getOutletId() + ", " + message.getPowerConsumption());
 	}
 }
